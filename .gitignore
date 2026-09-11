@@ -1,0 +1,42 @@
+# Everything under repro_package_zp/ is TRACKED VERBATIM.
+# Its files are the verification anchors for MANIFEST.json (sha256), so no
+# pattern in this file may ever match a path inside it.  The negations at the
+# bottom enforce that regardless of what is added above.
+
+# ---- Python caches ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+
+# ---- Re-run output (never commit; the archived anchors are already tracked) ----
+runs/
+tenseed_run/
+wd1111_run/
+wd1111_battery_run/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+
+# ---- LaTeX build products at repo root ----
+/*.aux
+/*.bbl
+/*.blg
+/*.fdb_latexmk
+/*.fls
+/*.out
+/*.synctex.gz
+
+# ---- Safety net: the sealed package is never ignored ----
+!repro_package_zp/
+!repro_package_zp/**

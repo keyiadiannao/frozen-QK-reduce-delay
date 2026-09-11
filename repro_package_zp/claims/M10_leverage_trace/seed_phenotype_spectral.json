@@ -1,0 +1,53 @@
+{
+ "0": {
+  "t": 14075,
+  "diag": 0.229,
+  "offdiag_top": []
+ },
+ "1": {
+  "t": 12525,
+  "diag": 0.612,
+  "offdiag_top": []
+ },
+ "2": {
+  "t": 15875,
+  "diag": 0.577,
+  "offdiag_top": []
+ },
+ "3": {
+  "t": 13100,
+  "diag": 0.069,
+  "offdiag_top": []
+ },
+ "4": {
+  "t": 11875,
+  "diag": 0.247,
+  "offdiag_top": []
+ },
+ "5": {
+  "t": 14475,
+  "diag": 0.557,
+  "offdiag_top": []
+ },
+ "6": {
+  "t": 10950,
+  "diag": 0.173,
+  "offdiag_top": []
+ },
+ "7": {
+  "t": 17850,
+  "diag": 0.58,
+  "offdiag_top": []
+ },
+ "8": {
+  "t": 17750,
+  "diag": 0.081,
+  "offdiag_top": []
+ },
+ "9": {
+  "t": 20200,
+  "diag": 0.66,
+  "offdiag_top": [],
+  "note": "never crossed; latest ckpt"
+ }
+}

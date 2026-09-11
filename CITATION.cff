@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+title: "Reproduction package: Early Query-Key Learning Determines the Grokking Delay in Modular Addition"
+type: software
+authors:
+  - family-names: Jin
+    given-names: Zhengzhong
+    affiliation: "East China University of Science and Technology, Shanghai, China"
+    email: 2643303025@qq.com
+abstract: >-
+  Reproduction package for a study of the grokking delay in a one-layer
+  Transformer trained on modular addition (c = a + b mod 113).  It contains
+  per-claim run and verification scripts, archived per-seed result files, the
+  seal manifest with sha256 checksums for every file and external anchor, and
+  the recorded 10-seed verdicts.  The package separates two verification
+  tiers: a bit-exact anchor tier (meaningful only on the seal machine) and a
+  behavioural verdict tier (portable to any environment).
+version: "1.16+tenseed"
+date-released: "2026-09-11"
+license: Apache-2.0
+keywords:
+  - grokking
+  - modular addition
+  - mechanistic interpretability
+  - attention
+  - training dynamics
+  - query-key routing
+  - reproducibility
+repository-code: "https://github.com/keyiadiannao/frozen-QK-reduce-delay"
+# The code and the data are under different licences: Apache-2.0 for the
+# program source, CC BY 4.0 for the archived measurement data.  See NOTICE.
+# The DOI for this software release is minted by the Zenodo-GitHub
+# integration.  Uncomment and fill it in after the first GitHub release:
+# doi: "10.5281/zenodo.XXXXXXXX"
+preferred-citation:
+  type: article
+  title: "Early Query--Key Learning Determines the Grokking Delay in Modular Addition"
+  authors:
+    - family-names: Jin
+      given-names: Zhengzhong
+      affiliation: "East China University of Science and Technology, Shanghai, China"
+  year: 2026
+  month: 9
+  doi: "10.5281/zenodo.22704451"
+  notes: "Preprint (working paper), Version 1, September 2026."

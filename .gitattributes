@@ -1,0 +1,14 @@
+# Byte-exact round-trip is a HARD REQUIREMENT for this repository.
+#
+# Every file under repro_package_zp/ has its sha256 recorded in
+# repro_package_zp/manifests/CHECKSUMS.txt and MANIFEST.json, and
+# manifests/SEAL.txt pins the sha256 of MANIFEST.json itself.  Any
+# line-ending normalisation (git's core.autocrlf on Windows) would change
+# the bytes on checkout, so a verifier on Windows and a verifier on Linux
+# would compute different hashes for the same commit and the seal would
+# appear broken.
+#
+# `-text` disables all end-of-line conversion, so a checkout is
+# byte-identical to the commit on every platform.  Diffs still work; only
+# conversion is off.
+* -text

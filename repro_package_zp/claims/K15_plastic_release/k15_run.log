@@ -1,0 +1,133 @@
+[K15] DEV=cuda SMOKE=False CAP=6000 SEEDS=(0, 1, 2)
+  seed0 install-gate: L000_rst=0.0e+00 L050_rst=9.5e-07 L100_rst=1.9e-06 SS_rst=4.8e-07 SS_nat=4.8e-07 L000_fr=0.0e+00 L100_fr=1.9e-06 SS_fr=4.8e-07
+  seed0 SS_nat    lam_eff0=+1.000 lam_effT=+0.522 I_end=0.474 cross=None va_end=0.306
+  seed0 SS_rst    lam_eff0=+1.000 lam_effT=+0.593 I_end=0.504 cross=None va_end=0.306
+  seed0 L000_rst  lam_eff0=+0.000 lam_effT=+0.297 I_end=0.005 cross=None va_end=0.307
+  seed0 L050_rst  lam_eff0=+0.500 lam_effT=+0.398 I_end=0.660 cross=None va_end=0.306
+  seed0 L100_rst  lam_eff0=+1.000 lam_effT=+0.467 I_end=0.384 cross=None va_end=0.305
+  seed0 SS_fr     lam_eff0=+1.000 lam_effT=+0.277 I_end=0.366 cross=None va_end=0.308
+  seed0 L000_fr   lam_eff0=+0.000 lam_effT=+0.185 I_end=0.007 cross=None va_end=0.348
+  seed0 L100_fr   lam_eff0=+1.000 lam_effT=+0.454 I_end=0.370 cross=None va_end=0.304
+  seed1 install-gate: L000_rst=0.0e+00 L050_rst=9.5e-07 L100_rst=1.9e-06 SS_rst=4.8e-07 SS_nat=4.8e-07 L000_fr=0.0e+00 L100_fr=1.9e-06 SS_fr=4.8e-07
+  seed1 SS_nat    lam_eff0=+1.000 lam_effT=+0.373 I_end=0.349 cross=None va_end=0.321
+  seed1 SS_rst    lam_eff0=+1.000 lam_effT=+0.274 I_end=0.313 cross=None va_end=0.318
+  seed1 L000_rst  lam_eff0=+0.000 lam_effT=+0.544 I_end=0.007 cross=None va_end=0.333
+  seed1 L050_rst  lam_eff0=+0.500 lam_effT=+0.737 I_end=0.504 cross=None va_end=0.297
+  seed1 L100_rst  lam_eff0=+1.000 lam_effT=+0.572 I_end=0.552 cross=None va_end=0.308
+  seed1 SS_fr     lam_eff0=+1.000 lam_effT=+0.278 I_end=0.307 cross=None va_end=0.319
+  seed1 L000_fr   lam_eff0=+0.000 lam_effT=+0.131 I_end=0.006 cross=None va_end=0.407
+  seed1 L100_fr   lam_eff0=+1.000 lam_effT=+0.700 I_end=0.562 cross=None va_end=0.307
+  seed2 install-gate: L000_rst=0.0e+00 L050_rst=9.5e-07 L100_rst=9.5e-07 SS_rst=9.5e-07 SS_nat=9.5e-07 L000_fr=0.0e+00 L100_fr=9.5e-07 SS_fr=9.5e-07
+  seed2 SS_nat    lam_eff0=+1.000 lam_effT=+0.522 I_end=0.475 cross=None va_end=0.313
+  seed2 SS_rst    lam_eff0=+1.000 lam_effT=+0.315 I_end=0.256 cross=None va_end=0.312
+  seed2 L000_rst  lam_eff0=+0.000 lam_effT=+0.212 I_end=0.009 cross=None va_end=0.316
+  seed2 L050_rst  lam_eff0=+0.500 lam_effT=+0.688 I_end=0.436 cross=None va_end=0.314
+  seed2 L100_rst  lam_eff0=+1.000 lam_effT=+1.348 I_end=0.484 cross=None va_end=0.243
+  seed2 SS_fr     lam_eff0=+1.000 lam_effT=+0.864 I_end=0.757 cross=None va_end=0.312
+  seed2 L000_fr   lam_eff0=+0.000 lam_effT=+0.450 I_end=0.009 cross=None va_end=0.314
+  seed2 L100_fr   lam_eff0=+1.000 lam_effT=+0.490 I_end=0.390 cross=None va_end=0.311
+
+=== lambda_eff trajectory (score-field projection) ===
+seed   arm           200    1000    2000    4000    6000
+0      SS_nat     +1.000  +0.624  +0.560  +0.497  +0.623
+0      SS_rst     +1.000  +0.632  +0.532  +0.547  +0.715
+0      L000_rst   +0.000  +0.398  +0.323  +0.495  +0.364
+0      L050_rst   +0.500  +0.700  +0.647  +0.394  +0.478
+0      L100_rst   +1.000  +0.751  +0.582  +0.838  +0.537
+0      SS_fr      +1.000  +0.691  +0.503  +0.512  +0.297
+0      L000_fr    +0.000  +0.281  +0.242  +0.223  +0.231
+0      L100_fr    +1.000  +0.764  +0.556  +0.453  +0.506
+
+1      SS_nat     +1.000  +0.637  +0.491  +0.579  +0.439
+1      SS_rst     +1.000  +0.688  +0.545  +0.474  +0.300
+1      L000_rst   +0.000  +0.478  +0.376  +0.258  +0.637
+1      L050_rst   +0.500  +0.714  +0.565  +0.837  +0.382
+1      L100_rst   +1.000  +0.820  +0.704  +0.900  +0.722
+1      SS_fr      +1.000  +0.694  +0.526  +0.485  +0.301
+1      L000_fr    +0.000  +0.332  +0.329  +0.162  +0.146
+1      L100_fr    +1.000  +0.813  +0.613  +0.978  +0.647
+
+2      SS_nat     +1.000  +0.652  +0.634  +0.393  +0.568
+2      SS_rst     +1.000  +0.623  +0.516  +0.759  +0.334
+2      L000_rst   +0.000  +0.460  +0.452  +0.321  +0.228
+2      L050_rst   +0.500  +0.768  +0.706  +0.566  +0.800
+2      L100_rst   +1.000  +0.924  +0.847  +0.787  +0.713
+2      SS_fr      +1.000  +0.675  +0.611  +0.379  +0.981
+2      L000_fr    +0.000  +0.300  +0.234  +0.195  +0.510
+2      L100_fr    +1.000  +0.783  +0.771  +1.186  +0.508
+
+=== descriptive: lambda_eff range over the run ===
+seed   arm          start      max     mean
+0      SS_nat      +1.000   +1.265   +0.551
+0      SS_rst      +1.000   +1.433   +0.574
+0      L000_rst    +0.000   +0.858   +0.383
+0      L050_rst    +0.500   +1.746   +0.604
+0      L100_rst    +1.000   +2.020   +0.723
+0      SS_fr       +1.000   +1.138   +0.539
+0      L000_fr     +0.000   +1.062   +0.275
+0      L100_fr     +1.000   +1.618   +0.716
+
+1      SS_nat      +1.000   +1.186   +0.548
+1      SS_rst      +1.000   +1.239   +0.559
+1      L000_rst    +0.000   +0.934   +0.407
+1      L050_rst    +0.500   +1.763   +0.646
+1      L100_rst    +1.000   +2.113   +0.724
+1      SS_fr       +1.000   +1.170   +0.555
+1      L000_fr     +0.000   +1.196   +0.322
+1      L100_fr     +1.000   +1.944   +0.809
+
+2      SS_nat      +1.000   +1.694   +0.636
+2      SS_rst      +1.000   +1.319   +0.561
+2      L000_rst    +0.000   +0.766   +0.394
+2      L050_rst    +0.500   +1.651   +0.787
+2      L100_rst    +1.000   +1.915   +0.942
+2      SS_fr       +1.000   +1.399   +0.575
+2      L000_fr     +0.000   +1.402   +0.353
+2      L100_fr     +1.000   +2.475   +0.783
+
+=== identity I(dt) and endpoint phenotype ===
+seed   arm       I(1000) I(3000)    I(T)   m1(T)   m2(T)   va(T)    cross
+0      SS_nat      0.657   0.422   0.474   0.999   0.002   0.306     cens
+0      SS_rst      0.638   0.575   0.504   0.997   0.003   0.306     cens
+0      L000_rst    0.004   0.005   0.005   1.000   0.008   0.307     cens
+0      L050_rst    0.805   0.663   0.660   0.998   0.004   0.306     cens
+0      L100_rst    0.580   0.476   0.384   0.992   0.002   0.305     cens
+0      SS_fr       0.743   0.439   0.366   1.000   0.005   0.308     cens
+0      L000_fr     0.006   0.007   0.007   1.000   0.079   0.348     cens
+0      L100_fr     0.661   0.493   0.370   0.995   0.003   0.304     cens
+
+1      SS_nat      0.700   0.531   0.349   0.999   0.017   0.321     cens
+1      SS_rst      0.741   0.421   0.313   1.000   0.016   0.318     cens
+1      L000_rst    0.008   0.008   0.007   1.000   0.041   0.333     cens
+1      L050_rst    0.647   0.626   0.504   0.953   0.007   0.297     cens
+1      L100_rst    0.697   0.700   0.552   0.991   0.007   0.308     cens
+1      SS_fr       0.755   0.540   0.307   0.998   0.017   0.319     cens
+1      L000_fr     0.008   0.007   0.006   1.000   0.136   0.407     cens
+1      L100_fr     0.668   0.574   0.562   0.996   0.009   0.307     cens
+
+2      SS_nat      0.700   0.568   0.475   0.999   0.003   0.313     cens
+2      SS_rst      0.656   0.362   0.256   1.000   0.004   0.312     cens
+2      L000_rst    0.011   0.010   0.009   1.000   0.010   0.316     cens
+2      L050_rst    0.677   0.512   0.436   0.998   0.003   0.314     cens
+2      L100_rst    0.679   0.618   0.484   0.813   0.001   0.243     cens
+2      SS_fr       0.715   0.569   0.757   1.000   0.002   0.312     cens
+2      L000_fr     0.013   0.011   0.009   1.000   0.004   0.314     cens
+2      L100_fr     0.712   0.546   0.390   0.998   0.002   0.311     cens
+
+=== verdict (preregistered) ===
+  lam_eff spread L100-L000 at T: +0.170 +0.028 +1.137   (>=0.2 in 1/3 seeds)
+  lam_eff monotone in lambda: 2/3 seeds
+  L000 crosses & L100 does not: 0/3 seeds
+  curves converged (spread<0.1 by t=2000): 0/3 seeds
+VERDICT: MIXED -- register per cell; claim nothing beyond the recorded trajectories.
+  reset cost (SS_rst vs SS_nat):
+    seed0  lam_effT 0.522 vs 0.593 | I(T) 0.474 vs 0.504
+    seed1  lam_effT 0.373 vs 0.274 | I(T) 0.349 vs 0.313
+    seed2  lam_effT 0.522 vs 0.315 | I(T) 0.475 vs 0.256
+  G-RESET (first-step QK update norm, mode=rst):
+    seed0  |dWq|1=1.72e-01 |dWk|1=1.72e-01  |dWq|50=1.03e+00 |dWk|50=1.99e+00
+    seed1  |dWq|1=1.72e-01 |dWk|1=1.71e-01  |dWq|50=1.08e+00 |dWk|50=1.96e+00
+    seed2  |dWq|1=1.71e-01 |dWk|1=1.72e-01  |dWq|50=1.13e+00 |dWk|50=2.00e+00
+HARNESS: PASS
+[K15] done in 483.5s
+pkl written

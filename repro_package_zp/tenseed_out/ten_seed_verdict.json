@@ -1,0 +1,56 @@
+{
+  "date": "2026-09-06",
+  "seeds": "0-9 (M10/M11: 0-8)",
+  "artifacts": {
+    "K01_fate_lock": {
+      "artifact": "results_10seed.pkl",
+      "status": "DONE",
+      "note": "10-seed"
+    },
+    "K02_qk_carrier": {
+      "artifact": "results_10seed.pkl",
+      "status": "DONE",
+      "note": "10-seed"
+    },
+    "K03_identity_geometry": {
+      "artifact": "results_10seed.pkl",
+      "status": "DONE",
+      "note": "10-seed"
+    },
+    "K07_maintenance": {
+      "artifact": "results_10seed.pkl",
+      "status": "DONE",
+      "note": "10-seed"
+    },
+    "K14_dose_response": {
+      "artifact": "results_10seed.pkl",
+      "status": "DONE",
+      "note": "10-seed"
+    },
+    "M10_leverage_trace": {
+      "artifact": "results_9seed.pkl",
+      "status": "DONE",
+      "note": "9-seed (seed9 stage-4 censored: no native crossing, K selection undefined)"
+    },
+    "M11_wr_factorial": {
+      "artifact": "results_9seed.pkl",
+      "status": "DONE",
+      "note": "9-seed (seed9 stage-4 censored)"
+    }
+  },
+  "gate_verdicts": {
+    "K01_fate_lock": "PASS (10/10, from worker logs)",
+    "K02_qk_carrier": "PASS (10/10)",
+    "K03_identity_geometry": "PASS (10/10) - PREREGISTERED fixed-lag criterion re-evaluated offline from the saved pkl (repro/k03_offline_verdict.py): dP@100=+0.215+/-0.062 and dP@500=+0.536+/-0.109, both 10/10 positive; frozen-window (snap=50) reversal 10/10; natF post-crossing collapse 8/8. The GATE FAILURE string recorded here was produced by an ad-hoc tierB substitute criterion (not the K3 preregistered criterion); run.py has been corrected and documented (TEN_SEED_RUN_PLAN J-5).",
+    "K07_maintenance": "PASS (frozen gates PASS)",
+    "K14_dose_response": "PASS - DOSE-RESPONSE: censoring fraction 0/2/7/8/9 out of 10 across lambda=0/.25/.5/.75/1.0, monotone non-decreasing in 10/10 seeds; SELF med 2438 (0/10 censored), RND med 7612 (0/10), OPER med 11000 (5/10)",
+    "M10_leverage_trace (S1)": "BELOW GATE 6/9 (need >=7): J_nov(P) mean=+1.736 SD=0.410 all 9 positive; J_nov(L) mean=+2.128 SD=1.332; window-median estimator on full native grid after pick_checkpoints window-coverage fix",
+    "M11_wr_factorial (S2)": "PASS 9/9: I_match mean=+1.894 SD=0.653 all positive"
+  },
+  "wd1111_battery": {
+    "CB1 fate contrast": "fate gap holds under wd_1111: natS cross 8000/10000/12000 vs natF 4000/4000/4000 (s0/s1/s2)",
+    "CB2 transplant": "CARRIER-HOLDS 3/3 (valid rerun 2026-09-06, CAP2=20000, QK sources at t=200 per R97/R125 semantics): native t=200 config crosses late wherever installed (SQS 10875/8400/15925, FQS held-then-late), initial construction escapes early on either body (SQ0 1475/1150/1950, FQ0 1200/1500/1375) -- replicates R125 seed-0 (1425-1650). HONESTY NOTE: two earlier battery runs (final-QK-source variant and first t=200 rerun) are INVALID -- cb2_transplant.py omitted opt.zero_grad(), gradients accumulated across steps and froze dynamics near chance; invalid artifacts kept as cb2_results_INVALID_zerograd_bug.json",
+    "CB3 lookup M2y": "CLASS-SHARED (s0,s1) / MIXED (s2): CENTROID ~= NATIVE ~= 1.0, DELTA-ONLY 0.13-0.34 - pair-specific lookup gate does NOT hold under wd_1111",
+    "CB4 Fourier ladder": "strong Fourier structure: L1 n50=4-5 modes, L2 K8 recon 0.994-1.0, L3 diag_share 0.89-0.97 (L4 causal filter not in output)"
+  }
+}

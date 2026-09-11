@@ -1,0 +1,14 @@
+{
+  "0": {
+    "natS_cross": 8000,
+    "natF_cross": 4000
+  },
+  "1": {
+    "natS_cross": 10000,
+    "natF_cross": 4000
+  },
+  "2": {
+    "natS_cross": 12000,
+    "natF_cross": 4000
+  }
+}

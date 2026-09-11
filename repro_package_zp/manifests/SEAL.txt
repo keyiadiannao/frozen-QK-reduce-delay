@@ -1,0 +1,9 @@
+seal: v1.16-tierA-final
+sealed_at_utc: 2026-09-07T16:33:44Z
+recontract: two-tier (Tier A bit-exact local / Tier B verdict portable)
+claims: K01-K16
+change: Tier A verification executed on both machines: LOCAL (original 3-seed archives + repro/ code) C1-C5 ALL PASS incl. C3b forward bit-equality against original bridge_zp checkpoints; SERVER AutoDL RTX 4090 (10-seed checkpoints) C1-C5 ALL PASS + C6 training replay bit-exact for family A seeds 0/1/2 (first_cross 14000/12000/16000 matched). Harness fix included: verify-summary NaN-pair comparison (both-sides-nan counts equal; zp OD subset empty on both sides). --replay flag in verify_extract.py documented-but-unimplemented; C6 executed via train_base.py --verify-summary as its docstring specifies.
+n_files: 123
+n_external_anchors: 99
+external_anchors_missing: 0
+MANIFEST.json sha256: c90212decd5dc97fa6817506dfa40d4e74303c5b4cec1f22bea680b9acf5752c

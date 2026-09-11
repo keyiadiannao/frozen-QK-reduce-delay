@@ -1,0 +1,16 @@
+# Recommended environment (NOT a hard pin).
+# The package separates two verification tiers (see ENVIRONMENT.md):
+#   Tier A (bit-exact anchor mode): only meaningful on the seal machine
+#           with these exact versions + same GPU model.
+#   Tier B (statistical / verdict mode): the default everywhere else --
+#           including rented servers for the 10-seed rerun.  Any
+#           reasonably recent numpy/torch should work; preregistered
+#           verdicts are behavioral, not bitwise.
+#
+# Known-good versions (seal machine, first seal 2026-09-02):
+numpy>=2.1
+torch>=2.4
+# Seal machine actually ran: numpy 2.4.3, torch 2.11.0+cu128 (CUDA
+# 12.8 wheel).  On CPU-only servers the training scripts fall back to
+# cpu automatically; expect slower runs and statistical (not bitwise)
+# agreement.

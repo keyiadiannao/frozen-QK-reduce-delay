@@ -1,0 +1,45 @@
+Reproduction package: Early Query-Key Learning Determines the Grokking Delay
+in Modular Addition
+Copyright 2026 Zhengzhong Jin
+
+This product includes software developed by Zhengzhong Jin.
+
+--------------------------------------------------------------------------
+LICENSE SCOPE
+--------------------------------------------------------------------------
+
+This repository contains two kinds of material under two different licences.
+Apache 2.0 is a software licence and does not sensibly cover measurement data,
+so the split is stated explicitly here.
+
+1. CODE -- Apache License 2.0 (see LICENSE)
+
+   All program source: the Python files under repro_package_zp/ (including
+   common/, scripts/, base/, and claims/*/run.py, claims/*/verify.py) and the
+   repository-level documents.
+
+2. ARCHIVED MEASUREMENT DATA -- Creative Commons Attribution 4.0
+   International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+
+   The archived result files that this package verifies against, namely the
+   *.pkl files under
+
+       repro_package_zp/claims/*/
+       repro_package_zp/tenseed_out/
+       repro_package_zp/manifests/
+
+   and the recorded JSON verdicts alongside them. You may share and adapt
+   this data for any purpose, including commercially, provided you give
+   appropriate credit and indicate if changes were made.
+
+3. THIRD-PARTY MATERIAL
+
+   None. No third-party code is vendored in this repository, and
+   repro_package_zp/manifests/CHECKSUMS.txt records sha256 hashes for the
+   code's own outputs only. The preprint's LaTeX sources are not part of this
+   repository; they are deposited with the preprint itself.
+
+--------------------------------------------------------------------------
+
+If you use this software or data, please cite the preprint and this
+repository. See CITATION.cff.

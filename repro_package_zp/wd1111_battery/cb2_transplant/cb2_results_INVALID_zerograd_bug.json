@@ -1,0 +1,23 @@
+{
+  "0": {
+    "SQS": null,
+    "FQ0": null,
+    "SQ0": null,
+    "FQS": null,
+    "verdict": "NOT-CARRIER"
+  },
+  "1": {
+    "SQS": null,
+    "FQ0": null,
+    "SQ0": null,
+    "FQS": 9025,
+    "verdict": "MIXED"
+  },
+  "2": {
+    "SQS": null,
+    "FQ0": null,
+    "SQ0": null,
+    "FQS": null,
+    "verdict": "NOT-CARRIER"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "0": {
+    "L1_n50": 4,
+    "L2": {
+      "full_centroid": 1.0,
+      "K8_reconstruction": 0.9988252799749393,
+      "no_interaction": 0.11018873835069308
+    },
+    "L3_diag_share": {
+      "diag_share": 0.8898030671144161
+    }
+  },
+  "1": {
+    "L1_n50": 5,
+    "L2": {
+      "full_centroid": 0.9991385386482888,
+      "K8_reconstruction": 0.9943613438797086,
+      "no_interaction": 0.13564100556034145
+    },
+    "L3_diag_share": {
+      "diag_share": 0.9666487250579573
+    }
+  },
+  "2": {
+    "L1_n50": 5,
+    "L2": {
+      "full_centroid": 1.0,
+      "K8_reconstruction": 1.0,
+      "no_interaction": 0.2643903203069935
+    },
+    "L3_diag_share": {
+      "diag_share": 0.9749499670841412
+    }
+  }
+}

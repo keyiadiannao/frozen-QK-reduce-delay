@@ -1,0 +1,190 @@
+{
+ "date": "2026-09-06",
+ "question": "do gate-failing seeds share a latent phenotype?",
+ "finding": "Yes: a bimodal structural phenotype (diag_share_L = fraction of the pre-crossing interaction-write 2D spectrum on same-|k| pairs) separates all gate anomalies from clean seeds. Independent slowness axis explains censorings.",
+ "phenotype_table": {
+  "0": {
+   "diag_share_L": 0.229,
+   "K5_capture_of_write_energy": 0.201,
+   "replay_cross": 15075,
+   "J_P": 1.74,
+   "J_L": 1.44,
+   "S1_gate": false,
+   "I_match": 1.62,
+   "base_final_va": 0.514,
+   "base_collapsed": true,
+   "spectral_diag_s9_latest": 0.229
+  },
+  "1": {
+   "diag_share_L": 0.612,
+   "K5_capture_of_write_energy": 0.603,
+   "replay_cross": 13525,
+   "J_P": 2.17,
+   "J_L": 2.84,
+   "S1_gate": true,
+   "I_match": 1.71,
+   "base_final_va": 1.0,
+   "base_collapsed": false,
+   "spectral_diag_s9_latest": 0.612
+  },
+  "2": {
+   "diag_share_L": 0.577,
+   "K5_capture_of_write_energy": 0.566,
+   "replay_cross": 16875,
+   "J_P": 2.13,
+   "J_L": 3.5,
+   "S1_gate": true,
+   "I_match": 2.79,
+   "base_final_va": 0.058,
+   "base_collapsed": true,
+   "spectral_diag_s9_latest": 0.577
+  },
+  "3": {
+   "diag_share_L": 0.069,
+   "K5_capture_of_write_energy": 0.04,
+   "replay_cross": 14100,
+   "J_P": 1.53,
+   "J_L": 3.65,
+   "S1_gate": true,
+   "I_match": 0.68,
+   "base_final_va": 0.493,
+   "base_collapsed": true,
+   "spectral_diag_s9_latest": 0.069
+  },
+  "4": {
+   "diag_share_L": 0.247,
+   "K5_capture_of_write_energy": 0.192,
+   "replay_cross": 12875,
+   "J_P": 1.89,
+   "J_L": -0.6,
+   "S1_gate": false,
+   "I_match": 1.62,
+   "base_final_va": 1.0,
+   "base_collapsed": false,
+   "spectral_diag_s9_latest": 0.247
+  },
+  "5": {
+   "diag_share_L": 0.557,
+   "K5_capture_of_write_energy": 0.517,
+   "replay_cross": 15475,
+   "J_P": 1.11,
+   "J_L": 2.07,
+   "S1_gate": true,
+   "I_match": 1.95,
+   "base_final_va": 0.999,
+   "base_collapsed": false,
+   "spectral_diag_s9_latest": 0.557
+  },
+  "6": {
+   "diag_share_L": 0.173,
+   "K5_capture_of_write_energy": 0.148,
+   "replay_cross": 11950,
+   "J_P": 1.73,
+   "J_L": 0.6,
+   "S1_gate": false,
+   "I_match": 1.44,
+   "base_final_va": 0.991,
+   "base_collapsed": false,
+   "spectral_diag_s9_latest": 0.173
+  },
+  "7": {
+   "diag_share_L": 0.58,
+   "K5_capture_of_write_energy": 0.546,
+   "replay_cross": 18850,
+   "J_P": 2.26,
+   "J_L": 2.93,
+   "S1_gate": true,
+   "I_match": 2.85,
+   "base_final_va": 0.991,
+   "base_collapsed": false,
+   "spectral_diag_s9_latest": 0.58
+  },
+  "8": {
+   "diag_share_L": 0.081,
+   "K5_capture_of_write_energy": 0.051,
+   "replay_cross": 18750,
+   "J_P": 1.07,
+   "J_L": 2.71,
+   "S1_gate": true,
+   "I_match": 2.39,
+   "base_final_va": 0.008,
+   "base_collapsed": false,
+   "spectral_diag_s9_latest": 0.081
+  }
+ },
+ "s9": {
+  "replay_cross": null,
+  "base_first_cross": 24000,
+  "spectral_diag_latest_t20200": 0.66,
+  "note": "slow-axis extreme (cleanest structure of all seeds); NOT low-diag"
+ },
+ "axes": {
+  "structure_axis_low": [
+   0,
+   3,
+   4,
+   6,
+   8
+  ],
+  "flags": {
+   "S1_fail": [
+    0,
+    4,
+    6
+   ],
+   "K03_LATE": [
+    3,
+    6
+   ],
+   "K03_natS_censored": [
+    0,
+    8,
+    9
+   ],
+   "M11_min": [
+    3
+   ],
+   "K03_natF_censored": [
+    2,
+    3
+   ]
+  },
+  "K03_natS_censored_explained_by_horizon": "seeds with native cross > CAP 14000: 15075/18750/>20000 = 0/8/9 exactly",
+  "correlations": {
+   "diag_vs_J_P": 0.783,
+   "diag_vs_I_match": 0.6,
+   "diag_vs_crossing": 0.2,
+   "diag_vs_JL_minus_JP": -0.267
+  },
+  "hypergeometric_posthoc": "all 5 unique anomaly seeds (0,3,4,6,8) fall in the 5-seed low group: p=1/126~0.008, post-hoc so indicative only"
+ },
+ "emergent": {
+  "native_arm_post_crossing_collapse": {
+   "0": {
+    "first_cross": 14000,
+    "best_va": 0.9988811814723652,
+    "final_va": 0.5140971134481988,
+    "collapsed": true
+   },
+   "2": {
+    "first_cross": 16000,
+    "best_va": 0.9991049451778922,
+    "final_va": 0.05761915417319311,
+    "collapsed": true
+   },
+   "3": {
+    "first_cross": 12000,
+    "best_va": 0.9968673081226225,
+    "final_va": 0.4929514432759006,
+    "collapsed": true
+   },
+   "8": {
+    "first_cross": null,
+    "best_va": 0.6211680465428507,
+    "final_va": 0.007719847840680242,
+    "collapsed": false
+   }
+  },
+  "note": "base 30k runs: 4/10 native slow arms fall from ~1.0 to <=0.51 after crossing (0,2,3,8); overlaps low-diag on {0,3,8}; s2 is clean-structure exception"
+ }
+}
