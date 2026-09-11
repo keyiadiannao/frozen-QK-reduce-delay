@@ -12,7 +12,7 @@ This repository is the evidence base for the published documents, released so
 the numbers can be recomputed rather than taken on faith.
 
 - **Preprint** (four-page brief + full manuscript):
-  [`10.5281/zenodo.22708281`](https://doi.org/10.5281/zenodo.22708281)
+  [`10.5281/zenodo.22710058`](https://doi.org/10.5281/zenodo.22710058)
 - **This software release** (seal v1.18-claim-correctness):
   [`10.5281/zenodo.22710044`](https://doi.org/10.5281/zenodo.22710044)
 - **Read [`ERRATA.md`](ERRATA.md) before citing or reusing anything here.** It
