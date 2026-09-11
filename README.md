@@ -24,7 +24,7 @@ This repository is the evidence base for that preprint. It is released so the
 numbers can be recomputed rather than taken on faith.
 
 - Preprint (full manuscript and four-page brief): DOI
-  [`10.5281/zenodo.22704451`](https://doi.org/10.5281/zenodo.22704451)
+  [`10.5281/zenodo.22708281`](https://doi.org/10.5281/zenodo.22708281)
 - **Before citing or reusing anything here, read [`ERRATA.md`](ERRATA.md).** It
   lists one known error in a sealed summary file, one omitted data file, and
   the retained invalid runs.
