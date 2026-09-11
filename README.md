@@ -14,8 +14,9 @@ the numbers can be recomputed rather than taken on faith.
 - **Preprint** (four-page brief + full manuscript):
   [`10.5281/zenodo.22708281`](https://doi.org/10.5281/zenodo.22708281)
 - **Read [`ERRATA.md`](ERRATA.md) before citing or reusing anything here.** It
-  records one known error in a sealed summary file, one omitted data file, the
-  retained invalid runs, and the findings of a pre-release audit.
+  records two known errors in sealed aggregate files, one omitted data file, the
+  retained invalid runs, and the findings of a pre-release audit — plus which
+  files are authoritative when an aggregate disagrees with an anchor.
 
 ---
 

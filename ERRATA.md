@@ -66,6 +66,70 @@ for cond in ['L000', 'L025', 'L050', 'L075', 'L100']:
 
 ---
 
+## 1b. The WD1111 battery summary carries the **invalid** CB2 run
+
+**Where.** `repro_package_zp/wd1111_battery/wd1111_battery_summary.json`, key
+`cb2_transplant`.
+
+**What it says** — against what the corrected per-claim file says:
+
+| | summary JSON | `cb2_transplant/cb2_results.json` (corrected) |
+|---|---|---|
+| seed 0 | `SQS=None`, verdict `NOT-CARRIER` | `SQS=10875`, verdict `CARRIER-HOLDS` |
+| seed 1 | `SQS=None`, `FQS=9025`, verdict `MIXED` | `SQS=8400`, `FQS=13275`, verdict `CARRIER-HOLDS` |
+| seed 2 | `SQS=None`, verdict `NOT-CARRIER` | `SQS=15925`, verdict `CARRIER-HOLDS` |
+
+The summary's `cb2_transplant` section is **identical to the content of
+`cb2_results_INVALID_zerograd_bug.json`** — verified by direct comparison
+(`summary == invalid` → true; `summary == corrected` → false). Its verdict is
+therefore the *opposite* of the measurement.
+
+**Which is right.** The corrected per-claim file. The invalid run is the one
+described in `repro_package_zp/README.md`: two early `cb2_transplant.py` runs
+omitted `opt.zero_grad()`, so gradients accumulated across steps and training
+stalled at chance. The corrected rerun scores `CARRIER-HOLDS` in 3/3 seeds, which
+is what `repro_package_zp/README.md` states.
+
+**What the manuscript says.** It quotes the **corrected** numbers — "the
+transplant factorial scores `Carrier-Holds` in 3/3 ... on the slow body (crossing
+8400–15925) and on the fast body alike (11050–13275) ... while the initial
+construction imposes the fast fate on either body (1150–1950)" — and all three
+ranges match `cb2_results.json` exactly. Paper, anchor and package README agree;
+only the aggregate disagrees.
+
+**Why it is still there.** Same reason as §1: editing it would change its sha256
+and break the seal every other file is verified against. The other three CB
+sections (`cb1_fate`, `cb3_lookup`, `cb4_fourier`) were checked and **do** match
+their per-claim files, so this is isolated to CB2 — the one CB section corrected
+after the summary was written.
+
+---
+
+## 1c. The pattern behind §1 and §1b — read the anchors, not the aggregates
+
+Both defects have the same root cause: **an aggregate file was written before a
+correction and never rebuilt.** The K14 verdict string predates a recount; the
+CB2 section predates the `opt.zero_grad()` fix.
+
+| file | status |
+|---|---|
+| `claims/*/results*.pkl` | **authoritative** — the per-claim anchors |
+| `claims/*/` per-experiment JSON (e.g. `cb2_results.json`) | **authoritative** |
+| `repro_package_zp/README.md` | **authoritative** — states the corrected conclusions |
+| the manuscript and the brief | **authoritative** — quote the corrected numbers |
+| `tenseed_out/ten_seed_verdict.json` | **stale in one value** (§1) |
+| `wd1111_battery/wd1111_battery_summary.json` | **stale in one section** (§1b) |
+
+**Rule for a reader: treat the per-claim anchors and the package README as the
+record; treat the aggregate summaries as convenience digests that may lag a
+correction.** If an aggregate and an anchor disagree, the anchor wins.
+
+This is exactly the class of defect a self-verifying package cannot catch:
+`verify.py` re-runs the same code and compares against the anchor, so it never
+reads the aggregates at all.
+
+---
+
 ## 2. What `manifests/CHECKSUMS.txt` covers, and why most of it is absent here
 
 `manifests/CHECKSUMS.txt` has **222 lines**, and they are not all package files:
