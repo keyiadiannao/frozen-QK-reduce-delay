@@ -1,4 +1,4 @@
-"""K01 run.py — necessity 2x2 at t=200 (fate lock in the non-QK subsystem).
+"""K01 run.py — necessity 2x2 at t=200 (fate lock).
 
 Package port of repro/amp_necess2x2.py (M2.5, 2026-09-02).  Verbatim
 except: bridge paths via common.states (state codes F/S -> families
@@ -9,10 +9,14 @@ arms replay from the same theta_200 snapshots with their own opt state
 and the main-stream RNG chain (seed -> model init -> discard the 200
 frozen-phase draws -> continue); CAP=4000, vacc>0.9 crossing.
 
-Claim (ledger K1): by t=200 the slow fate is already written into the
-non-QK subsystem -- freezing QK 200->4000 leaves va~0.30 uncrossed
+Claim (ledger K1): by t=200 the slow/fast branch is already determined --
+later QK plasticity is neither necessary for the fast branch nor sufficient
+to release the slow one: freezing QK 200->4000 leaves va~0.30 uncrossed
 (S-frozen) while F-frozen crosses within the F-train window (J1/J4
-pattern, seed-paired).  Preregistered Round 51; STATE_SPACE Assay A.
+pattern, seed-paired).  This assay does NOT locate the carrier; the carrier
+is the joint Q-K configuration, established by K02.  (An earlier wording
+here said the fate was "written into the non-QK subsystem"; that reading is
+withdrawn -- see ERRATA.)  Preregistered Round 51; STATE_SPACE Assay A.
 """
 import os
 import sys

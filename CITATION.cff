@@ -15,7 +15,7 @@ abstract: >-
   the recorded 10-seed verdicts.  The package separates two verification
   tiers: a bit-exact anchor tier (meaningful only on the seal machine) and a
   behavioural verdict tier (portable to any environment).
-version: "1.16+tenseed"
+version: "1.18-claim-correctness"
 date-released: "2026-09-11"
 license: Apache-2.0
 keywords:

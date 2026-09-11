@@ -1,9 +1,9 @@
-seal: v1.17-reconciliation
-sealed_at_utc: 2026-09-11T13:14:34Z
+seal: v1.18-claim-correctness
+sealed_at_utc: 2026-09-11T13:34:44Z
 recontract: two-tier (Tier A bit-exact local / Tier B verdict portable)
 claims: K01-K16
-change: Reconciliation: two aggregate files corrected from their anchors. (1) tenseed_out/ten_seed_verdict.json K14 string 0/2/7/8/9 -> 0/2/6/8/9 (the results_10seed.pkl anchor yields 6 censored at L050). (2) wd1111_battery_summary.json cb2_transplant replaced with the corrected cb2_results.json content: it had held the INVALID zerograd-bug run, whose verdict NOT-CARRIER/MIXED is the opposite of the measured CARRIER-HOLDS 3/3. All other package files are byte-identical to seal v1.16-tierA-final and their v1.16 hashes still hold.
+change: Reconciliation 2: three per-claim documentation files corrected; no code behaviour changed. (1) claims/K01_fate_lock/README.md and run.py: the claim statement read 'by t=200 the slow fate is already written into the non-QK subsystem', which over-reads a necessity result. K01 shows the slow/fast branch is determined by t=200 and that later QK plasticity is neither necessary for the fast branch nor sufficient to release the slow one; it does not locate the carrier -- K02 does, and finds the joint Q-K configuration. The 3-seed crossing range 1375-1600 in the same line was also stale (10-seed: 1375-1925). (2) claims/K07_maintenance/README.md: the 3-seed and 10-seed anchors give different I(500) ranges and the file quoted one without saying which; both are correct and are now stated separately. All other files are byte-identical to seal v1.17-reconciliation.
 n_files: 123
 n_external_anchors: 99
 external_anchors_missing: 0
-MANIFEST.json sha256: 54819e8233d84ea8ff0495850406489984d9edaa10868558931889b8c0bb90ea
+MANIFEST.json sha256: 9a31ab43f75d0ea0f595b639e013e121f510c673a4827b4a0f1f1dca4750b24f

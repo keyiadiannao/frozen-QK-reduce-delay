@@ -4,7 +4,7 @@ Code and archived per-seed measurements for a study of the **grokking delay** in
 a one-layer Transformer trained on modular addition (`c = a + b (mod 113)`).
 
 The claim under test: a brief early window of query–key learning is causally
-responsible for much of the delay. Freezing `W_Q W_K` at initialization gives
+responsible for much of the delay. Freezing `W_Q` and `W_K` at initialization gives
 early crossing, while freezing it only *after* the first 200 steps leaves the
 network on a long structured-lookup plateau; a 2×2 state-factorial transplant at
 `t = 200` inverts with the query–key block in both directions and in every seed.
@@ -42,7 +42,7 @@ rerun against the archived anchor), and `results*.pkl` (the archived per-seed
 measurement — the anchor).
 
 The model class is named `D57Model`. The name is legacy: the architecture was
-transcribed verbatim from the authors' earlier dihedral-training script. This
+transcribed verbatim from the author's earlier dihedral-training script. This
 package is entirely about `c = a + b (mod 113)`; the dihedral cross-family
 replication is separate prior work and is not imported here.
 
@@ -85,16 +85,24 @@ to the author's raw training tree.
 the manifest can be authenticated without trusting the file list:
 
 ```
-seal: v1.17-reconciliation     n_files: 123
-sealed_at_utc: 2026-09-11      n_external_anchors: 99
-MANIFEST.json sha256: 54819e8233d84ea8ff0495850406489984d9edaa10868558931889b8c0bb90ea
+seal: v1.18-claim-correctness   n_files: 123
+sealed_at_utc: 2026-09-11       n_external_anchors: 99
+MANIFEST.json sha256: 9a31ab43f75d0ea0f595b639e013e121f510c673a4827b4a0f1f1dca4750b24f
 ```
 
-Two seals exist. **v1.16-tierA-final** (2026-09-07) is the audited original;
-**v1.17-reconciliation** (2026-09-11) differs from it in **exactly two files** —
-the two aggregate tables corrected in [`ERRATA.md`](ERRATA.md) §1 and §1b. The
-other 121 file hashes are unchanged from v1.16, and `MANIFEST.json`'s
-`change` field records the reconciliation.
+Three seals exist, each a documented reconciliation of the previous one. All
+three cover the **same 123-entry key set** and the **same 99 external anchors**,
+so a verifier holding any two can diff them and confirm the delta is exactly
+what [`ERRATA.md`](ERRATA.md) §1c and §1d say and nothing else:
+
+| seal | date | differs from the previous in |
+|---|---|---|
+| `v1.16-tierA-final` | 2026-09-07 | — (the audited original) |
+| `v1.17-reconciliation` | 2026-09-11 | 2 files — the aggregates corrected in §1 and §1b |
+| `v1.18-claim-correctness` | 2026-09-11 | 3 files — the claim statements corrected in §1d |
+
+`MANIFEST.json`'s `change` field records what each reconciliation did.
+**v1.18 is the current seal and the one this repository ships.**
 
 ---
 

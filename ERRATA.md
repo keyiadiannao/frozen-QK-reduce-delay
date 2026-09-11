@@ -117,15 +117,20 @@ CB2 section predates the `opt.zero_grad()` fix. Both are now corrected.
 |---|---|
 | `claims/*/results*.pkl` | **authoritative** — the per-claim anchors |
 | `claims/*/` per-experiment JSON (e.g. `cb2_results.json`) | **authoritative** |
-| `repro_package_zp/README.md` | **authoritative** — states the corrected conclusions |
+| `repro_package_zp/README.md` | **authoritative except for explicitly listed errata** — it states the corrected conclusions, but §3 records one place where its wording for K03 is superseded by the verdict JSON |
 | the manuscript and the brief | **authoritative** — quote the corrected numbers |
+| `claims/*/README.md` claim statements | **authoritative** — except K01, corrected in v1.18 (§1d) |
 | `tenseed_out/ten_seed_verdict.json` | corrected in v1.17 (§1) |
 | `wd1111_battery/wd1111_battery_summary.json` | corrected in v1.17 (§1b) |
 
-**Rule that still applies: treat the per-claim anchors and the package README as
-the record; treat the aggregate summaries as convenience digests.** If an
-aggregate and an anchor ever disagree, the anchor wins — the v1.17 corrections
-were themselves made by re-deriving from the anchors, not by retyping.
+**Rule: treat the per-claim anchors and the package README as the record, and
+the aggregate summaries as convenience digests — but this section, not any
+single file, is what resolves a conflict.** "Authoritative" below always means
+"authoritative except where an erratum in this document says otherwise"; §3 is
+the worked example (the package README's K03 wording yields to the verdict JSON).
+Where an aggregate and an anchor disagree and no erratum covers it, the anchor
+wins — the v1.17 and v1.18 corrections were themselves made by re-deriving from
+the anchors, not by retyping.
 
 ### The v1.17 delta, stated exactly
 
@@ -139,12 +144,70 @@ wd1111_battery/wd1111_battery_summary.json   (cb2_transplant section)
 
 The other **121 file hashes are unchanged**, the 123-entry key set is identical,
 the 99 external anchors are identical, and `n_files` is unchanged at 123. The
-new `MANIFEST.json` sha256 is
+v1.17 `MANIFEST.json` sha256 was
 `54819e8233d84ea8ff0495850406489984d9edaa10868558931889b8c0bb90ea`.
 
-Because the v1.16 file set and the v1.17 file set are the same 123 paths, a
-verifier holding either manifest can diff them and confirm the delta is exactly
-those two entries and nothing else.
+### The v1.18 delta, stated exactly
+
+`seal v1.18-claim-correctness` — the current seal — differs from v1.17 in
+**exactly three files**:
+
+```
+claims/K01_fate_lock/README.md        (claim statement, §1d)
+claims/K01_fate_lock/run.py           (docstring only; no behaviour change)
+claims/K07_maintenance/README.md      (seed labels for the two anchor sets)
+```
+
+The other **120 file hashes are unchanged**, the key set is still the same 123,
+and the 99 external anchors are identical. Current `MANIFEST.json` sha256:
+`9a31ab43f75d0ea0f595b639e013e121f510c673a4827b4a0f1f1dca4750b24f`.
+
+Because all three seals cover the same 123 paths, a verifier holding any two can
+diff them and confirm the delta is exactly those entries and nothing else.
+
+---
+
+## 1d. K01's claim statement over-read its own result — **corrected in seal v1.18**
+
+**Where.** `repro_package_zp/claims/K01_fate_lock/README.md` (claim line) and
+`repro_package_zp/claims/K01_fate_lock/run.py` (module docstring).
+
+**What it said.**
+
+> Claim: at t=200 the slow fate is already written into the **non-QK subsystem**:
+> freezing QK 200→4000 still leaves va≈0.30 uncrossed; QK frozen at init
+> crosses 1375–1600.
+
+**Why that is wrong.** K01 is a *necessity* assay. It shows that by `t = 200` the
+slow/fast branch is determined, and that later query–key plasticity is neither
+necessary for the fast branch nor sufficient to release the slow one. It does not
+— and cannot — say *where* the fate is stored. The location is K02's result, and
+it is the opposite: the carrier is the **joint Q–K configuration**, established
+by the 2×2 transplant in which fate follows the query–key block in both
+directions and in every seed.
+
+The same sentence also carried a stale 3-seed crossing range (`1375–1600`); the
+ten-seed figure is `1375–1925`.
+
+This is the one place in the package where a *claim statement* contradicted the
+paper's headline finding, so it was corrected rather than merely listed. The
+`run.py` edit is docstring-only — no behaviour changed, and the anchor it
+produces is byte-identical.
+
+**Not a contradiction with the paper's own "non-QK" thread.** The manuscript does
+discuss a non-QK state, but scopes it explicitly: *"The release experiment shows
+that the non-QK state governs re-acquisition; it does not show where the delay
+lives once the coupled system is already mature."* K01 is not a release
+experiment, which is exactly why the old wording was an over-read.
+
+### Related labelling fix
+
+`claims/K07_maintenance/README.md` quoted `I(500) = 0.965–0.970` (QS) vs
+`0.658–0.686` (Q0) without saying which seed set. Those are the **3-seed**
+values from `results.pkl`; the paper and the brief quote the **10-seed** values
+(`0.934–0.981` and `0.470–0.934`) from `results_10seed.pkl`. Both are correct.
+The file now labels both, so a reader cannot mistake the 3-seed figures for a
+disagreement with the paper.
 
 This is exactly the class of defect a self-verifying package cannot catch:
 `verify.py` re-runs the same code and compares against the anchor, so it never
@@ -179,10 +242,10 @@ sha256sum -c /tmp/pkg.sums --ignore-missing
 # expected: 122 OK, 0 FAILED
 ```
 
-Verified against seal v1.17-reconciliation: **122 files hash-matched, 0
+Verified against seal v1.18-claim-correctness: **122 files hash-matched, 0
 mismatches, 1 expected absence** (K13, below), and the sha256 of `MANIFEST.json`
 matches the value recorded in `manifests/SEAL.txt`
-(`54819e8233d84ea8ff0495850406489984d9edaa10868558931889b8c0bb90ea`).
+(`9a31ab43f75d0ea0f595b639e013e121f510c673a4827b4a0f1f1dca4750b24f`).
 
 **The one genuine omission.** `claims/K13_closure_boundary/results.pkl` is a
 package file, not an external anchor, and it is missing. It is 144 MB and
