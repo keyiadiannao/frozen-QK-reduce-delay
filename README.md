@@ -56,7 +56,8 @@ cd frozen-QK-reduce-delay/repro_package_zp
 pip install -r env/requirements.txt     # numpy>=2.1, torch>=2.4; CPU fallback works
 ```
 
-**Seal integrity** — the expected result is **122 files verified, 0 mismatches**:
+**Seal integrity** — the expected result is **122 verified and 1 expected
+absence** (`claims/K13_closure_boundary/results.pkl`, see [`ERRATA.md`](ERRATA.md) §2):
 
 ```bash
 grep -v '^repro/' manifests/CHECKSUMS.txt > /tmp/pkg.sums
@@ -84,10 +85,16 @@ to the author's raw training tree.
 the manifest can be authenticated without trusting the file list:
 
 ```
-seal: v1.16-tierA-final        n_files: 123
-sealed_at_utc: 2026-09-07      n_external_anchors: 99
-MANIFEST.json sha256: c90212decd5dc97fa6817506dfa40d4e74303c5b4cec1f22bea680b9acf5752c
+seal: v1.17-reconciliation     n_files: 123
+sealed_at_utc: 2026-09-11      n_external_anchors: 99
+MANIFEST.json sha256: 54819e8233d84ea8ff0495850406489984d9edaa10868558931889b8c0bb90ea
 ```
+
+Two seals exist. **v1.16-tierA-final** (2026-09-07) is the audited original;
+**v1.17-reconciliation** (2026-09-11) differs from it in **exactly two files** —
+the two aggregate tables corrected in [`ERRATA.md`](ERRATA.md) §1 and §1b. The
+other 121 file hashes are unchanged from v1.16, and `MANIFEST.json`'s
+`change` field records the reconciliation.
 
 ---
 

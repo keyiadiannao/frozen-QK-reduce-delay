@@ -1,5 +1,5 @@
 {
-  "change": "Tier A verification executed on both machines: LOCAL (original 3-seed archives + repro/ code) C1-C5 ALL PASS incl. C3b forward bit-equality against original bridge_zp checkpoints; SERVER AutoDL RTX 4090 (10-seed checkpoints) C1-C5 ALL PASS + C6 training replay bit-exact for family A seeds 0/1/2 (first_cross 14000/12000/16000 matched). Harness fix included: verify-summary NaN-pair comparison (both-sides-nan counts equal; zp OD subset empty on both sides). --replay flag in verify_extract.py documented-but-unimplemented; C6 executed via train_base.py --verify-summary as its docstring specifies.",
+  "change": "Reconciliation: two aggregate files corrected from their anchors. (1) tenseed_out/ten_seed_verdict.json K14 string 0/2/7/8/9 -> 0/2/6/8/9 (the results_10seed.pkl anchor yields 6 censored at L050). (2) wd1111_battery_summary.json cb2_transplant replaced with the corrected cb2_results.json content: it had held the INVALID zerograd-bug run, whose verdict NOT-CARRIER/MIXED is the opposite of the measured CARRIER-HOLDS 3/3. All other package files are byte-identical to seal v1.16-tierA-final and their v1.16 hashes still hold.",
   "claim": "Zp early-attention programming (TMLR submission), claims K01-K16 per paper_zp/CLAIM_LEDGER.md",
   "claims_in_package": [
     "K01",
@@ -237,18 +237,18 @@
     "scripts/ten_seed_summary.py": "d6404a32720346f126553d5763051feec3e2cf104def71080e8230b5f6973eda",
     "scripts/train_wd1111_bridge.py": "23f240cb736c3c18bcb4dc34b8e94cdafbb6d44e7b32b41c4361ae55f649f5a6",
     "tenseed_out/replay_summary.json": "2c0ae8ef675040ea02e4130671000904b55c67b441cbd63bd137639989bc746a",
-    "tenseed_out/ten_seed_verdict.json": "4d045ec40a54b38c389123311a1a6623071b0554c998e896526ea773c058759d",
+    "tenseed_out/ten_seed_verdict.json": "e4c0a137ebaeabdd573ae51afda6a810373cfd959e47eb4656a0b5544b4d5940",
     "verify_extract.py": "ac231762fc2d17e5640d08e80b72d7515c2792e1b5dabd08380c52f5e29f5e81",
     "wd1111_battery/cb1_fate/cb1_results.json": "c3685b0990f592b7d761ccbc8e18d541926e200d101959515f95bfbcfdeadba1",
     "wd1111_battery/cb2_transplant/cb2_results.json": "de51ebf80b0e37b97d49dbaa42e6eb81c0e60f8845c5a3a35c50ac609a2ad08b",
     "wd1111_battery/cb2_transplant/cb2_results_INVALID_zerograd_bug.json": "b16ba9daa983e763ca16db96d0ec624ec6b08cebf5417c2fda2e6ae1e2daa766",
     "wd1111_battery/cb3_lookup/cb3_results.json": "d44ce6ae1879161fe6d6dd229d2c8cd8732194e36f258cbaca62d4ef76978ec8",
     "wd1111_battery/cb4_fourier/cb4_results.json": "46e8181d45b93ec437711f2f5bffebe04209ad3b49d75ffedd3e86828ccb0111",
-    "wd1111_battery/wd1111_battery_summary.json": "3c7993059d0addb004d2b1fbcf9c147074dc1f1ddd8121ef17684bd4a7eb26b1"
+    "wd1111_battery/wd1111_battery_summary.json": "7459187afd011d6726efed7ba48657c1823a0f204abdac08143429e02f78713a"
   },
   "n_files": 123,
   "package": "repro_package_zp",
   "recontract": "two-tier reproducibility: Tier A bit-exact (seal machine only), Tier B verdict/statistical (portable, default for 10-seed servers)",
-  "seal": "v1.16-tierA-final",
-  "sealed_at_utc": "2026-09-07T16:33:44Z"
+  "seal": "v1.17-reconciliation",
+  "sealed_at_utc": "2026-09-11T13:14:34Z"
 }

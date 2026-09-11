@@ -12,7 +12,7 @@ and omissions.
 
 ---
 
-## 1. K14 verdict string disagrees with its own anchor (known error, not fixed in place)
+## 1. K14 verdict string disagreed with its own anchor — **corrected in seal v1.17**
 
 **Where.** `repro_package_zp/tenseed_out/ten_seed_verdict.json`, key
 `gate_verdicts.K14_dose_response`.
@@ -47,10 +47,12 @@ the four-page brief both report `6/10` for L050 with "4 observed" crossings,
 which is internally consistent with the table above. The `.../7/...` in the
 verdict JSON is an error in a prose convenience summary, not in the measurement.
 
-**Why it is still there.** Editing the JSON would change its sha256 and break
-the seal that every other file in the package is verified against. A deposit
-whose checksums no longer verify is worth less than a deposit with one
-documented erratum. The sealed JSON is unchanged.
+**Status: corrected in seal v1.17-reconciliation (2026-09-11).** The string now
+reads `0/2/6/8/9`, re-derived from the anchor by script rather than retyped. It
+was *not* edited silently into seal v1.16: that would have changed the file's
+sha256 and broken the hash every other file is verified against. Instead the
+package was re-sealed, and the new `MANIFEST.json` `change` field records exactly
+what was reconciled — see §1c for the full accounting of the two-file delta.
 
 **To check it yourself.**
 
@@ -97,11 +99,11 @@ construction imposes the fast fate on either body (1150–1950)" — and all thr
 ranges match `cb2_results.json` exactly. Paper, anchor and package README agree;
 only the aggregate disagrees.
 
-**Why it is still there.** Same reason as §1: editing it would change its sha256
-and break the seal every other file is verified against. The other three CB
-sections (`cb1_fate`, `cb3_lookup`, `cb4_fourier`) were checked and **do** match
-their per-claim files, so this is isolated to CB2 — the one CB section corrected
-after the summary was written.
+**Status: corrected in seal v1.17-reconciliation (2026-09-11).** The section now
+carries the corrected values, `CARRIER-HOLDS` in 3/3 seeds. Its three sibling
+sections (`cb1_fate`, `cb3_lookup`, `cb4_fourier`) were checked and **did** match
+their per-claim files, so the defect was isolated to CB2 — the one CB section
+corrected after the summary was written.
 
 ---
 
@@ -109,7 +111,7 @@ after the summary was written.
 
 Both defects have the same root cause: **an aggregate file was written before a
 correction and never rebuilt.** The K14 verdict string predates a recount; the
-CB2 section predates the `opt.zero_grad()` fix.
+CB2 section predates the `opt.zero_grad()` fix. Both are now corrected.
 
 | file | status |
 |---|---|
@@ -117,12 +119,32 @@ CB2 section predates the `opt.zero_grad()` fix.
 | `claims/*/` per-experiment JSON (e.g. `cb2_results.json`) | **authoritative** |
 | `repro_package_zp/README.md` | **authoritative** — states the corrected conclusions |
 | the manuscript and the brief | **authoritative** — quote the corrected numbers |
-| `tenseed_out/ten_seed_verdict.json` | **stale in one value** (§1) |
-| `wd1111_battery/wd1111_battery_summary.json` | **stale in one section** (§1b) |
+| `tenseed_out/ten_seed_verdict.json` | corrected in v1.17 (§1) |
+| `wd1111_battery/wd1111_battery_summary.json` | corrected in v1.17 (§1b) |
 
-**Rule for a reader: treat the per-claim anchors and the package README as the
-record; treat the aggregate summaries as convenience digests that may lag a
-correction.** If an aggregate and an anchor disagree, the anchor wins.
+**Rule that still applies: treat the per-claim anchors and the package README as
+the record; treat the aggregate summaries as convenience digests.** If an
+aggregate and an anchor ever disagree, the anchor wins — the v1.17 corrections
+were themselves made by re-deriving from the anchors, not by retyping.
+
+### The v1.17 delta, stated exactly
+
+`seal v1.17-reconciliation` differs from `seal v1.16-tierA-final` in **exactly
+two files**:
+
+```
+tenseed_out/ten_seed_verdict.json            (K14 verdict string)
+wd1111_battery/wd1111_battery_summary.json   (cb2_transplant section)
+```
+
+The other **121 file hashes are unchanged**, the 123-entry key set is identical,
+the 99 external anchors are identical, and `n_files` is unchanged at 123. The
+new `MANIFEST.json` sha256 is
+`54819e8233d84ea8ff0495850406489984d9edaa10868558931889b8c0bb90ea`.
+
+Because the v1.16 file set and the v1.17 file set are the same 123 paths, a
+verifier holding either manifest can diff them and confirm the delta is exactly
+those two entries and nothing else.
 
 This is exactly the class of defect a self-verifying package cannot catch:
 `verify.py` re-runs the same code and compares against the anchor, so it never
@@ -157,9 +179,10 @@ sha256sum -c /tmp/pkg.sums --ignore-missing
 # expected: 122 OK, 0 FAILED
 ```
 
-This was verified before release: 122 files hash-matched, 0 mismatches, and the
-sha256 of `MANIFEST.json` matches the value recorded in `manifests/SEAL.txt`
-(`c90212decd5dc97fa6817506dfa40d4e74303c5b4cec1f22bea680b9acf5752c`).
+Verified against seal v1.17-reconciliation: **122 files hash-matched, 0
+mismatches, 1 expected absence** (K13, below), and the sha256 of `MANIFEST.json`
+matches the value recorded in `manifests/SEAL.txt`
+(`54819e8233d84ea8ff0495850406489984d9edaa10868558931889b8c0bb90ea`).
 
 **The one genuine omission.** `claims/K13_closure_boundary/results.pkl` is a
 package file, not an external anchor, and it is missing. It is 144 MB and

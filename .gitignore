@@ -1,7 +1,12 @@
 # Everything under repro_package_zp/ is TRACKED VERBATIM.
-# Its files are the verification anchors for MANIFEST.json (sha256), so no
-# pattern in this file may ever match a path inside it.  The negations at the
-# bottom enforce that regardless of what is added above.
+# Its files are the verification anchors for manifests/CHECKSUMS.txt (sha256),
+# so no pattern here may match a path inside it -- with one exception: compiled
+# Python caches, which are artefacts of *running* the package and are not part
+# of the seal.
+#
+# ORDER MATTERS.  git applies these in sequence and the last match wins, so the
+# blanket negation near the bottom re-includes anything ignored above it.  The
+# cache rules are therefore repeated AFTER the negation.
 
 # ---- Python caches ----
 __pycache__/
@@ -40,3 +45,8 @@ desktop.ini
 # ---- Safety net: the sealed package is never ignored ----
 !repro_package_zp/
 !repro_package_zp/**
+
+# ---- ...but compiled caches inside it are.  MUST stay after the negation. ----
+repro_package_zp/**/__pycache__/
+*.pyc
+*.pyo

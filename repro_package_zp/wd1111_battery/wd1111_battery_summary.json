@@ -15,25 +15,25 @@
   },
   "cb2_transplant": {
     "0": {
-      "SQS": null,
-      "FQ0": null,
-      "SQ0": null,
-      "FQS": null,
-      "verdict": "NOT-CARRIER"
+      "SQS": 10875,
+      "FQ0": 1200,
+      "SQ0": 1475,
+      "FQS": 11425,
+      "verdict": "CARRIER-HOLDS"
     },
     "1": {
-      "SQS": null,
-      "FQ0": null,
-      "SQ0": null,
-      "FQS": 9025,
-      "verdict": "MIXED"
+      "SQS": 8400,
+      "FQ0": 1500,
+      "SQ0": 1150,
+      "FQS": 13275,
+      "verdict": "CARRIER-HOLDS"
     },
     "2": {
-      "SQS": null,
-      "FQ0": null,
-      "SQ0": null,
-      "FQS": null,
-      "verdict": "NOT-CARRIER"
+      "SQS": 15925,
+      "FQ0": 1375,
+      "SQ0": 1950,
+      "FQS": 11050,
+      "verdict": "CARRIER-HOLDS"
     }
   },
   "cb3_lookup": {
