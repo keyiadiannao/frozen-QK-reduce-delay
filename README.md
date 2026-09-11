@@ -40,6 +40,11 @@ Each `claims/<ID>/` directory holds `README.md` (claim statement and status),
 rerun against the archived anchor), and `results*.pkl` (the archived per-seed
 measurement — the anchor).
 
+The model class is named `D57Model`. The name is legacy: the architecture was
+transcribed verbatim from the authors' earlier dihedral-training script. This
+package is entirely about `c = a + b (mod 113)`; the dihedral cross-family
+replication is separate prior work and is not imported here.
+
 ---
 
 ## First: verify what you downloaded
