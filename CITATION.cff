@@ -29,9 +29,8 @@ keywords:
 repository-code: "https://github.com/keyiadiannao/frozen-QK-reduce-delay"
 # The code and the data are under different licences: Apache-2.0 for the
 # program source, CC BY 4.0 for the archived measurement data.  See NOTICE.
-# The DOI for this software release is minted by the Zenodo-GitHub
-# integration.  Uncomment and fill it in after the first GitHub release:
-# doi: "10.5281/zenodo.XXXXXXXX"
+# DOI of the archived software release (seal v1.18-claim-correctness):
+doi: "10.5281/zenodo.22710044"
 preferred-citation:
   type: article
   title: "Early Query--Key Learning Determines the Grokking Delay in Modular Addition"
